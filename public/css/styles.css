@@ -1,0 +1,271 @@
+/* General reset and layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header{
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    align-items: center;
+}
+
+#logo{
+    text-decoration: none;
+    font-size: 2em;
+    color: #4CAF50;
+}
+
+nav {
+    margin: 20px 0;
+}
+
+nav a{
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+nav a:hover{
+    color: #4CAF50;
+}
+
+/* Main */
+main{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #F5F5DC;
+}
+
+/* Specific styling for Login and Signup Forms */
+form {
+    background-color: #fff;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+form h2 {
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+
+form.login, form.signup {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form .link {
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+}
+
+form .link a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+form .link a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer{
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.footer-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content p{
+    margin: 0;
+}
+
+.social-media{
+    display: flex;
+}
+
+.social-media a{
+    margin-left: 10px;
+}
+
+.social-media img{
+    width: 24px;
+    height: 24px;
+}
+
+.logo-image{
+    height: 50px;
+    width: auto;
+}
+
+.profile-page .profile {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+
+.profile-page h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.profile-page h2 {
+    font-size: 24px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+
+.profile-page table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+}
+
+.profile-page table th, .profile-page table td {
+    padding: 10px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.profile-page table th {
+    background-color: #f4f4f4;
+}
+
+
+.profile-page .action-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 15px;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    display: inline-block;
+    margin-right: 10px; 
+}
+
+.profile-page .action-button:hover {
+    background-color: #45a049;
+}
+
+.profile-page .action-button:focus {
+    outline: none;
+}
+
+
+.profile-page .my-offers {
+    margin-top: 40px;
+}
+
+.profile-page .my-offers p {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+.profile-page .row {
+    margin-bottom: 20px;
+}
+
+
+.profile-page .profile {
+    padding: 20px;
+}
+
+
+.profile-page .profile h2,
+.profile-page table,
+.profile-page .my-offers {
+    margin-bottom: 20px;
+}
+
+.profile button {
+    background-color: transparent; 
+    color: #4CAF50;  
+    border: 1px solid #4CAF50;  
+    padding: 5px 10px;  
+    font-size: 14px;  
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px; 
+    text-transform: uppercase; 
+}
+
+
+.profile button:hover {
+    background-color: #4CAF50; 
+    color: white;  
+}
+
+
+.profile form {
+    display: inline-block;
+    margin: 0; 
+}
+
+
+
+

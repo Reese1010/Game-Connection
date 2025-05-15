@@ -1,0 +1,26 @@
+<header>
+    <a href="/" id="logo">
+        <img src="/images/logo.png" alt="Game Connection Logo" class="logo-image">
+    </a>
+    <%- include('nav') %>
+</header>
+<% if(errorMessages.length > 0) {%>
+    <% errorMessages.forEach(message=>{%>
+        <div class='error'>
+            <%=message%>
+        </div>
+        <%});%>
+            <%}%>
+
+                <% if(successMessages.length > 0) {%>
+
+                    <% successMessages.forEach(message=>{%>
+                        <div class='success'>
+                            <%=message%>
+                        </div>
+                        <%});%>
+                            <%}%>
+
+
+
+

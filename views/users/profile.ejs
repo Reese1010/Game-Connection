@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    
+</head>
+<header><a href="/" style="color: white; text-decoration: none; margin-right: 10px;">Home</a>
+    <a href="/items" style="color: white; text-decoration: none; margin-right: 10px;">Browse Items</a>
+    <a href="/items/new" style="color: white; text-decoration: none; margin-right: 10px;">Sell a Game</a>
+    <a href="/users/logout" style="color: white; text-decoration: none;">Log Out</a>
+</header>
+
+<main class="profile-page">
+
+    <div class="profile">
+        <h1><%= user.firstName %> <%= user.lastName %></h1>
+        
+        <h2>My Listed Items</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% items.forEach(item => { %>
+                    <tr>
+                        <td><%= item.title %></td>
+                        <td><%= item.active ? 'Active' : 'Sold' %></td>
+                        <td>
+                            <form action="/items/<%= item._id %>/edit" method="GET">
+                                <button type="submit">Edit</button>
+                            </form>
+                            
+                            <form action="/offers/<%= item._id %>" method="GET">
+                                <button type="submit">View Offers</button>
+                            </form>
+                            
+                            <form action="/items/<%= item._id %>?_method=DELETE" method="POST">
+                                <button type="submit">Delete</button>
+                            </form> 
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+        <h2>My Offers</h2>
+        <% if (offers && offers.length === 0) { %>
+            <p>You have not made any offers</p>
+        <% } else { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Offer Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% offers.forEach(offer => { %>
+                        <tr>
+                            <td><%= offer.item.title %></td>
+                            <td>$<%= offer.amount.toFixed(2) %></td>
+                            <td><%= offer.status %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+</main>
+

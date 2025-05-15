@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= item.title %> - Game Connection</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main>
+        <div class="item-detail">
+            <div class="item-image">
+                <img src="<%= item.image %>" alt="<%= item.title %>">
+            </div>
+            <div class="item-info">
+                <h1><%= item.title %></h1>
+                <p>Price: $<%= item.price.toFixed(2) %></p>
+                <p>Condition: <%= item.condition %></p>
+                <p>Details: <%= item.details %></p>
+                <p>Seller: <%= item.seller ? `${item.seller.firstName} ${item.seller.lastName}` : 'Unknown' %></p>
+                <p>Offers: <%= item.offers %></p>
+
+
+                <% if (item.active) { %>
+                    <% if (user && item.seller.toString() !== user._id.toString()) { %>
+                        <form action="/offers/<%= item._id %>" method="POST">
+                            <input type="number" name="amount" step="0.01" required>
+                            <button type="submit">Make an Offer</button>
+                        </form>
+                    <% } %>
+                <% } %>
+
+                <div class="buttons">
+                    <a href="/offers/<%= item.id %>" class="offer-button">View Offers</a>
+
+                    <br>
+                    <a href="/items/<%= item.id %>/edit" class="edit-button">Edit</a>
+                    <form action="/items/delete/<%= item.id %>" method="POST" style="display:inline;">
+                        <button type="submit" class="delete-button">Delete</button>
+                    </form>  
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>

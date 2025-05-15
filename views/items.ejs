@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Items</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main>
+        <h2>Available Games</h2>
+        <section class="items-container">
+            <% if (foundItems) { %>
+                <% items.forEach(item => { %>
+                    <div class="item">
+                        <img src="<%= item.image %>" alt="<%= item.title %> image" class="item-image">
+                        <h3><a href="/items/<%= item.id %>"><%= item.title %></a></h3>
+                        <p>Price: $<%= typeof item.price === 'number' ? item.price.toFixed(2) : 'N/A' %></p>
+                        <p>Seller: <%= item.seller ? `${item.seller.firstName} ${item.seller.lastName}` : 'Unknown' %></p>
+                        <p>Condition: <%= item.condition %></p>
+                        <p><%= item.details %></p>
+                        <p>Offers: <%= item.offers %></p>
+
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p>There is no item that matches your search criteria.</p>
+            <% } %>
+        </section>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>

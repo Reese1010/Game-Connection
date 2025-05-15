@@ -1,0 +1,14 @@
+<% offers.forEach((offer) => { %>
+    <div>
+      <p>Offer by: <%= offer.user.username %></p>
+      <p>Amount: <%= offer.amount %></p>
+      <% if (item.active) { %>
+        <form action="/offers/<%= item._id %>/<%= offer._id %>/accept" method="POST">
+          <button type="submit">Accept</button>
+        </form>
+      <% } else { %>
+        <p>Status: <%= offer.status %></p>
+      <% } %>
+    </div>
+  <% }); %>
+  

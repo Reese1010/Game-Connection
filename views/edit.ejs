@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Item</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main>
+        <h2>Edit Item: <%= item.title %></h2>
+        <form action="/items/<%= item.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <label for="condition">Condition:</label>
+            <select name="condition" required>
+                <option value="New" <%= item.condition === 'New' ? 'selected' : '' %>>New</option>
+                <option value="Like New" <%= item.condition === 'Like New' ? 'selected' : '' %>>Like New</option>
+                <option value="Very Good" <%= item.condition === 'Very Good' ? 'selected' : '' %>>Very Good</option>
+                <option value="Good" <%= item.condition === 'Good' ? 'selected' : '' %>>Good</option>
+                <option value="Other" <%= item.condition === 'Other' ? 'selected' : '' %>>Other</option>
+            </select>
+            <br>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="<%= item.title %>" required>
+            <br>
+            <label for="price">Price:</label>
+            <input type="number" step="0.01" id="price" name="price" value="<%= item.price %>" required>
+            <br>
+            <label for="seller">Seller:</label>
+            <input type="text" id="seller" name="seller" value="<%= item.seller %>" required>
+            <br>
+            <label for="details">Details:</label>
+            <textarea id="details" name="details" required><%= item.details %></textarea>
+            <br>
+            <label for="image">Choose Image:</label>
+            <input type="file" id="image" name="image" accept="image/*">
+            <br>
+            <button type="submit">Update Item</button>
+        </form>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>

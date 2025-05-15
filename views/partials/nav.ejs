@@ -1,0 +1,23 @@
+<nav>
+    <a href="/">Home</a>
+    <a href="/items">Browse Items</a>
+    <% if (user) { %>
+        <a href="/items/new">Sell a Game</a>
+        <a href="/users/profile">My Account</a>
+        <a href="/users/logout">Log Out</a>
+    <% } else { %>
+        <a href="/users/new">Sign Up</a>
+        <a href="/users/login">Log In</a>
+    <% } %>
+    <form action="/items" method="GET" >
+        <input type="search" name="search" placeholder="Search..." required>
+    </form>
+    
+</nav>
+
+
+
+
+
+
+
